@@ -1,14 +1,22 @@
-import Image from "next/image";
 import { Button } from "antd";
+import { Input } from "antd";
+import useSearchPokemon from "@/hooks/useSearchPokemon";
+import PokemonCard from "@/components/pokemonCard"
 
+const { Search } = Input
 
 export default function Home() {
+  const {value, onSearch} = useSearchPokemon()
   return (
     <div>
       <main>
         <div className="flex items-center justify-center min-h-screen">
-          <div className="w-1/2 min-w-[400px] bg-white p-6 shadow-md text-center">
-            <p className="text-lg font-semibold">Olá, Mundo!.</p>
+          <div className="w-1/2 min-w-[800px] bg-white p-6 shadow-md text-center rounded-lg border-red-50">
+            <p className="text-lg font-semibold">Pokédex</p>
+            <p>Busque um pokémon pelo nome ou número da National Pokédex!</p>
+            <Search placeholder="Insira nome ou número" onSearch={onSearch} enterButton="Buscar" />
+            <PokemonCard pokemon={value} />
+
           </div>
         </div>
 
