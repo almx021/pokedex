@@ -11,7 +11,7 @@ export default function Home() {
     <div>
       <main>
         <div className="flex items-center justify-center min-h-screen">
-          <div className="w-1/2 min-w-[800px] bg-blue-100 p-6 shadow-md text-center rounded-lg border-red-50">
+          <div className="w-1/2 min-w-[600px] bg-blue-100 p-6 shadow-md text-center rounded-lg border-red-50">
             <h1 className="text-lg font-bold text-blue-800">Pokédex</h1>
             <p>Busque um pokémon pelo nome ou número da National Pokédex!</p>
             <Search placeholder="Insira nome ou número" onSearch={onSearch} enterButton="Buscar" />

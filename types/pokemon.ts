@@ -1,20 +1,20 @@
 type Sprite = string | null;
 
 type BasicSpriteSet = {
-  back_default?: Sprite;
-  back_gray?: Sprite;
-  back_transparent?: Sprite;
   front_default?: Sprite;
+  back_default?: Sprite;
   front_gray?: Sprite;
+  back_gray?: Sprite;
   front_transparent?: Sprite;
-  back_shiny?: Sprite;
+  back_transparent?: Sprite;
   front_shiny?: Sprite;
-  back_shiny_transparent?: Sprite;
+  back_shiny?: Sprite;
   front_shiny_transparent?: Sprite;
-  back_female?: Sprite;
+  back_shiny_transparent?: Sprite;
   front_female?: Sprite;
-  back_shiny_female?: Sprite;
+  back_female?: Sprite;
   front_shiny_female?: Sprite;
+  back_shiny_female?: Sprite;
 };
 
 type AnimatedSpriteSet = BasicSpriteSet & {
@@ -149,49 +149,49 @@ export type Pokemon = {
   };
 
   sprites: {
-        back_default: string;
-        back_female?: string;
-        back_shiny: string;
-        back_shiny_female?: string;
+    front_default: string;
+    back_default: string;
+    front_female?: string;
+    back_female?: string;
+    front_shiny: string;
+    back_shiny: string;
+    front_shiny_female?: string;
+    back_shiny_female?: string;
+    other: {
+      dream_world: {
+        front_default: string;
+        front_female?: string;
+      };
+      home: {
         front_default: string;
         front_female?: string;
         front_shiny: string;
         front_shiny_female?: string;
-    other: {
-        dream_world: {
-            front_default: string;
-            front_female?: string;
-        };
-        home: {
-            front_default: string;
-            front_female?: string;
-            front_shiny: string;
-            front_shiny_female?: string;
-        };
-        official_artwork: {
-            front_default: string;
-            front_shiny: string;
-        };
-        showdown: {
-            back_default: string;
-            back_female?: string;
-            back_shiny: string;
-            back_shiny_female?: string;
-            front_default: string;
-            front_female?: string;
-            front_shiny: string;
-            front_shiny_female?: string;
-        }
+      };
+      official_artwork: {
+        front_default: string;
+        front_shiny: string;
+      };
+      showdown: {
+        front_default: string;
+        back_default: string;
+        front_female?: string;
+        back_female?: string;
+        front_shiny: string;
+        back_shiny: string;
+        front_shiny_female?: string;
+        back_shiny_female?: string;
+      }
     };
     versions?: {
-        "generation-i": GenerationI;
-        "generation-ii": GenerationII;
-        "generation-iii": GenerationIII;
-        "generation-iv": GenerationIV;
-        "generation-v": GenerationV;
-        "generation-vi": GenerationVI;
-        "generation-vii": GenerationVII;
-        "generation-viii": GenerationVIII;
+      "generation-i": GenerationI;
+      "generation-ii": GenerationII;
+      "generation-iii": GenerationIII;
+      "generation-iv": GenerationIV;
+      "generation-v": GenerationV;
+      "generation-vi": GenerationVI;
+      "generation-vii": GenerationVII;
+      "generation-viii": GenerationVIII;
     };
   };
 
