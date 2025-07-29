@@ -1,6 +1,19 @@
-import {Pokemon} from "@/types/pokemon";
+import { PokemonResponse } from '@/types/pokemonResponse';
 
-export default async function fetchPokemon(pokemon: string): Promise<Pokemon> {
-  const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)
-  return await data.json()
+export default async function fetchPokemon(pokemon: string): Promise<PokemonResponse | null> {
+  try {
+    const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)
+    if(!data.ok) {
+      return {
+        errorCode: data.status,
+        data: data.statusText
+      };
+    }
+    return {
+      errorCode: false,
+      data: await data.json()
+    }    
+  } catch (error) {
+    return null;
+  }
 }

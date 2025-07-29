@@ -1,19 +1,17 @@
 'use client';
 import { useState } from "react";
-import { message } from "antd";
 
 import fetchPokemon from "@/services/fetchPokemon";
-import { Pokemon } from "@/types/pokemon";
+import { PokemonResponse } from "@/types/pokemonResponse";
 
 
 export default function SearchInput() {
-    const [value, setValue] = useState<Pokemon | null>(null);
+    const [value, setValue] = useState<PokemonResponse | string | null>(null);
 
     const onSearch = async (data: string) => {
         const result = await fetchPokemon(data)
-        if (!data) {
-            message.error('Pokémon não encontrado!')
-            setValue(null)
+        if (!result || result.errorCode != false) {
+            setValue("Pokémon não encontrado!")
             return
         }
         setValue(result)
