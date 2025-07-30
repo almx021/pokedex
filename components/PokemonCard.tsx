@@ -32,7 +32,6 @@ const PokemonCard: React.FC<Props> = ({ result }) => {
               className='m-auto'/>
           </div>
         }
-      //  {<img alt='Sprite do Pokémon' src={result.sprites.front_default}/>}
       >
         <div className='h-200px w-full/2 rounded-lg pt-1 pb-1' style={{ backgroundColor: `${getColor(result.types[0].type.name)}` }}>
           <Carousel arrows infinite={false} className='pb-7'>
