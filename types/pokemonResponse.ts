@@ -1,6 +1,7 @@
 import { Pokemon } from "./pokemon";
 
 export type PokemonResponse = {
-    errorCode: number | boolean,
+    errorCode: number | false,
+    errorText: string | false
     data: Pokemon | string
 }

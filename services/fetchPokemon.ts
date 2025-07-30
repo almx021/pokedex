@@ -6,11 +6,13 @@ export default async function fetchPokemon(pokemon: string): Promise<PokemonResp
     if(!data.ok) {
       return {
         errorCode: data.status,
-        data: data.statusText
+        errorText: data.status == 404 ? 'Pokémon não encontrado!' : data.statusText,
+        data: ''
       };
     }
     return {
       errorCode: false,
+      errorText: false,
       data: await data.json()
     }    
   } catch (error) {
