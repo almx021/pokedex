@@ -54,12 +54,12 @@ const PokemonCard: React.FC<Props> = ({ result }) => {
               <div className='flex flex-wrap text-left'>
                 <div className='w-1/2 pl-7'>
                   {result.stats.slice(0, 3).map((item, index) => (
-                    <p><strong>{item.stat.name}:</strong> {item.base_stat}</p>
+                    <p key={index}><strong>{item.stat.name}:</strong> {item.base_stat}</p>
                   ))}
                 </div>
                 <div className='w-1/2'>
                   {result.stats.slice(3, 6).map((item, index) => (
-                    <p><strong>{item.stat.name}:</strong> {item.base_stat}</p>
+                    <p key={index}><strong>{item.stat.name}:</strong> {item.base_stat}</p>
                   ))}
                 </div>
               </div>
