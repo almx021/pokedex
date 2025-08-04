@@ -1,21 +1,31 @@
 'use client'
-import { Input } from "antd";
-import useSearchPokemon from "@/hooks/useSearchPokemon";
-import PokemonCard from "@/components/PokemonCard"
+
+import PokemonCard from "@/components/PokemonCard";
+import PokemonList from "@/components/PokemonList";
+import listPokemons from "@/hooks/useListPokemons";
+import useSearchPokemon from "@/hooks/useSearchPokemon"
+
+import { Button, Input, Space, } from "antd";
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { useState } from "react";
 
 const { Search } = Input
 
 export default function Home() {
-  const {value, onSearch} = useSearchPokemon()
+  const { value, page, setPage, isError } = listPokemons()
   return (
     <div>
       <main>
         <div className="flex items-center justify-center min-h-screen">
-          <div className="max-w[900px] min-w-[700px] bg-blue-100 p-6 shadow-md text-center rounded-lg border-red-50">
-            <h1 className="text-lg font-bold text-blue-800">Pokédex</h1>
-            <p>Busque um pokémon pelo nome ou número da National Pokédex!</p>
-            <Search placeholder="Insira nome ou número" onSearch={onSearch} enterButton="Buscar" />
-            <PokemonCard result={value?.errorText || value?.data} />
+          <div className="max-w[1200px] min-w-[700px] bg-blue-100 p-6 shadow-md text-center rounded-lg border-red-50">
+            <Space direction="vertical">
+              <h1 className="text-lg font-bold text-blue-800">Pokédex</h1>
+              <PokemonList pokemons={value || null} />
+              <Space>
+                <Button onClick={(e) => setPage(page - 1)} disabled={page === 1}><LeftOutlined /></Button>
+                <Button onClick={(e) => setPage(page + 1)}><RightOutlined /></Button>
+              </Space>
+            </Space>
           </div>
         </div>
       </main>

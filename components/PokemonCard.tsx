@@ -6,16 +6,11 @@ import { getColor } from '@/utils/colors'
 import type { Pokemon } from '@/types/pokemon'
 
 interface Props {
-  result: Pokemon | string | null | undefined
+  result: Pokemon | Record<string, never> | null | undefined
 }
 
 const PokemonCard: React.FC<Props> = ({ result }) => {
   if (!result) return null
-  if (typeof result === 'string') {
-    return (
-      <p className='text-red-500'><strong>{result}</strong></p>
-    )
-  }
 
   return (
     <div className="mt-4 flex items-center justify-center">
