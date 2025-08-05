@@ -2,7 +2,7 @@ import { PokemonListResponse, PokemonResponse } from '@/types/pokemonResponse';
 import { BASE_URL } from './api';
 
 export async function getAllPokemons({page = 1}: {page: number | null}): Promise<PokemonListResponse> {
-  const LIMIT = 10
+  const LIMIT = 20
   page = page ? (page - 1) * LIMIT : 0
 
   const data = await fetch(`${BASE_URL}/pokemon/?offset=${page}&limit=${LIMIT}`, {cache: 'force-cache'})
