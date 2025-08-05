@@ -7,28 +7,19 @@ import useSearchPokemon from "@/hooks/useSearchPokemon"
 
 import { Button, Input, Space, } from "antd";
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { useState } from "react";
 
 const { Search } = Input
 
 export default function Home() {
   const { value, page, setPage, isError } = listPokemons()
   return (
-    <div>
-      <main>
-        <div className="flex items-center justify-center min-h-screen">
-          <div className="max-w[1200px] min-w-[700px] bg-blue-100 p-6 shadow-md text-center rounded-lg border-red-50">
-            <Space direction="vertical">
-              <h1 className="text-lg font-bold text-blue-800">Pokédex</h1>
-              <PokemonList pokemons={value || null} />
-              <Space>
-                <Button onClick={(e) => setPage(page - 1)} disabled={page === 1}><LeftOutlined /></Button>
-                <Button onClick={(e) => setPage(page + 1)}><RightOutlined /></Button>
-              </Space>
-            </Space>
-          </div>
-        </div>
-      </main>
-    </div>
+    <Space direction="vertical">
+      <h1 className="text-lg font-bold text-blue-800">Pokédex</h1>
+      <PokemonList pokemons={value || null} />
+      <Space>
+        <Button onClick={(e) => setPage(page - 1)} disabled={page === 1}><LeftOutlined /></Button>
+        <Button onClick={(e) => setPage(page + 1)} disabled={value?.data.next === ""}><RightOutlined /></Button>
+      </Space>
+    </Space>
   )
 }

@@ -1,16 +1,20 @@
-import { Pokemon } from "@/types/pokemon"
 import { PokemonListResponse } from "@/types/pokemonResponse"
-import { Space } from "antd"
+
+import Link from "next/link"
 
 const PokemonList = ({ pokemons }: { pokemons: PokemonListResponse | null }) => {
     if (!pokemons) return
     return (
-        <div className="bg-white rounded-lg">
-            <Space>
-                {pokemons.data.results.map((result) => (
-                    <div>{result.name}</div>
-                ))}
-            </Space>
+        <div className="rounded-lg w-[700px] grid grid-cols-5 justify-evenly">
+            {pokemons.data.results.map((result, index) => (
+                <Link href={{
+                    pathname: `/pokemon/${result.name}`,
+                }} className="pointer-events-none" key={index}>
+                    <div className="bg-white p-2 m-2 rounded-full pointer-events-auto">
+                        <span className="bg-white">{result.name}</span>
+                    </div>
+                </Link>
+            ))}
         </div>
     )
 }
