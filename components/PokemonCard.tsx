@@ -35,8 +35,8 @@ const PokemonCard: React.FC<Props> = ({ result }) => {
               <div className='flex flex-wrap text-left'>
                 <div className='w-1/2 pl-7'>
                   <p><strong>Id:</strong> {result.id}</p>
-                  <p><strong>XP base:</strong> {result.base_experience}</p>
-                  <p><strong>Tipos:</strong> {result.types.map((t) => { return t.type.name }).join(', ')}</p>
+                  {/* <p><strong>XP base:</strong> {result.base_experience}</p> */}
+                  <p><strong>Tipos:</strong> {result.types.map((t) => t.type.name).join(', ')}</p>
                 </div>
                 <div className='w-1/2 pl-2'>
                   <p><strong>Altura:</strong> {result.height / 10}m</p>

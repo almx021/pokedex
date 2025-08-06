@@ -1,13 +1,15 @@
 'use client'
 
+import '@ant-design/v5-patch-for-react-19';
+
 import PokemonCard from "@/components/PokemonCard";
+import PokemonSearch from "@/components/PokemonSearch";
 import useSearchPokemon from "@/hooks/useSearchPokemon"
 
-import { Button, Input, Space } from "antd";
+import { Button, Space } from "antd";
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { useRouter } from "next/navigation";
 
-const { Search } = Input
 
 export default function PokemonDetails() {
   const router = useRouter()
@@ -15,8 +17,7 @@ export default function PokemonDetails() {
   return (
     <div>
       <h1 className="text-lg font-bold text-blue-800">Pokédex</h1>
-      <p>Busque um pokémon pelo nome ou número da National Pokédex!</p>
-      <Search placeholder="Insira nome ou número" onSearch={onSearch} enterButton="Buscar" />
+      <PokemonSearch onSearch={onSearch} />
       {isError ?
         <p className='text-red-500'><strong>{value?.errorText}</strong></p>
         : value ?
