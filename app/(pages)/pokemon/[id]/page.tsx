@@ -16,8 +16,10 @@ export default function PokemonDetails() {
   const { value, onSearch, isError } = useSearchPokemon()
   return (
     <div>
+      <Space direction='vertical'>
       <h1 className="text-lg font-bold text-blue-800">Pokédex</h1>
       <PokemonSearch onSearch={onSearch} />
+      </Space>
       {isError ?
         <p className='text-red-500'><strong>{value?.errorText}</strong></p>
         : value ?

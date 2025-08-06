@@ -24,7 +24,8 @@ const PokemonCard: React.FC<Props> = ({ result }) => {
               src={result.sprites.front_default}
               width={192}
               height={192} 
-              className='m-auto'/>
+              className='m-auto'
+              priority/>
           </div>
         }
       >

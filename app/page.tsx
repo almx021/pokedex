@@ -14,15 +14,19 @@ import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 export default function Home() {
   const { value, page, setPage, isError } = useListPokemons()
 
-  if (isError) return (<span className="text-red-500"><strong>
-    Erro ao obter os pokémons!<br />Atualize a página ou tente novamente mais tarde.
-  </strong></span>)
+  if (isError) return (
+    <span className="text-red-500"><strong>
+      Erro ao obter os pokémons!<br />Atualize a página ou tente novamente mais tarde.
+    </strong></span>
+  )
 
   const { onSearch } = useSearchPokemon()
   return (
     <Space direction="vertical">
-      <h1 className="text-lg font-bold text-blue-800">Pokédex</h1>
-      <PokemonSearch onSearch={onSearch} />
+      <Space direction='vertical'>
+        <h1 className="text-lg font-bold text-blue-800">Pokédex</h1>
+        <PokemonSearch onSearch={onSearch} />
+      </Space>
       <PokemonList pokemons={value || null} />
       <Space>
         <Button onClick={(e) => setPage(page - 1)} disabled={page === 1}><LeftOutlined /></Button>

@@ -16,16 +16,14 @@ export default function SearchInput() {
     const [isError, setError] = useState<Boolean | null>(null);
 
     useEffect(() => {
-        if (pokemonId !== dataInput) setDataInput(pokemonId)
-    }, [pokemonId])
-
-    useEffect(() => {
         if (dataInput && dataInput !== pokemonId) {
             router.replace(`/pokemon/${value}`);
         }
     }, [dataInput])
 
     useEffect(() => {
+        if (pokemonId !== dataInput) setDataInput(pokemonId)
+
         if (!pokemonId) return;
 
         const fetchPokemon = async () => {
