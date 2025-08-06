@@ -1,5 +1,5 @@
 'use client';
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { getPokemon } from "@/services/pokemons";
 import { PokemonResponse } from "@/types/pokemonResponse";
@@ -10,7 +10,6 @@ export default function SearchInput() {
     const pathname = usePathname();
     const router = useRouter();
     const pokemonId = pathname.split('/').filter(Boolean)[1] ?? '';
-
 
     const [dataInput, setDataInput] = useState<string>(pokemonId);
     const [value, setValue] = useState<PokemonResponse | null>(null);

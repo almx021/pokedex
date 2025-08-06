@@ -1,7 +1,8 @@
 'use client';
-import { useCallback, useEffect, useState } from "react";
 
-import { getAllPokemons, getPokemon } from "@/services/pokemons";
+import { useEffect, useState } from "react";
+
+import { getAllPokemons } from "@/services/pokemons";
 import { PokemonListResponse } from "@/types/pokemonResponse";
 
 
