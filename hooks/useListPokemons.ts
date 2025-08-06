@@ -7,12 +7,17 @@ import { PokemonListResponse } from "@/types/pokemonResponse";
 import { useQuery } from "@tanstack/react-query";
 
 
-export default function listPokemons({page = 1}: {page: number | null}) {
-    return useQuery({
+export default function listPokemons() {
+    const [page, setPage] = useState(1)
+    return {
+    query: useQuery({
         queryKey: ['pokemons', page],
         queryFn: () => getAllPokemons({page}),
         placeholderData: (previousData, previousQuery) => previousData
-    })
+    }),
+    page,
+    setPage
+}    
     
     // criei esse código para listar os pokemons antes de usar o useQuery
 

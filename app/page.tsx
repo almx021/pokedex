@@ -9,13 +9,11 @@ import useSearchPokemon from "@/hooks/useSearchPokemon";
 
 import { Button, Space } from "antd";
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { useState } from 'react';
 
 
 export default function Home() {
-  const [page, setPage] = useState(1)
-  const { data, isError } = useListPokemons({page});
-
+  
+  const { query: {data, isError}, page, setPage} = useListPokemons();
 
   if (isError) return (
     <span className="text-red-500"><strong>
