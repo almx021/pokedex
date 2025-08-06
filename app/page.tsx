@@ -9,10 +9,13 @@ import useSearchPokemon from "@/hooks/useSearchPokemon";
 
 import { Button, Space } from "antd";
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { useState } from 'react';
 
 
 export default function Home() {
-  const { value, page, setPage, isError } = useListPokemons()
+  const [page, setPage] = useState(1)
+  const { data, isError } = useListPokemons({page});
+
 
   if (isError) return (
     <span className="text-red-500"><strong>
@@ -27,10 +30,10 @@ export default function Home() {
         <h1 className="text-lg font-bold text-blue-800">Pokédex</h1>
         <PokemonSearch onSearch={onSearch} />
       </Space>
-      <PokemonList pokemons={value || null} />
+      <PokemonList pokemons={data || null} />
       <Space>
         <Button onClick={(e) => setPage(page - 1)} disabled={page === 1}><LeftOutlined /></Button>
-        <Button onClick={(e) => setPage(page + 1)} disabled={value?.data.next === ""}><RightOutlined /></Button>
+        <Button onClick={(e) => setPage(page + 1)} disabled={data?.data.next === ""}><RightOutlined /></Button>
       </Space>
     </Space>
   )
