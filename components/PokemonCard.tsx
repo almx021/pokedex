@@ -13,9 +13,9 @@ const PokemonCard: React.FC<Props> = ({ result }) => {
   if (!result) return null
 
   return (
-    <div className="mt-4 flex items-center justify-center">
+    <div className="mt-4 mb-2 flex items-center justify-center">
       <Card title={<p className='font-bold'>{result.name.charAt(0).toUpperCase() + result.name.slice(1).toLowerCase()}</p>}
-        className="shadow-md w-1/2"
+        className="shadow-md w-1/2 min-w-[325px]"
         styles={{ header: { backgroundColor: `${getColor(result.types[0].type.name)}` }}}
         cover={
           <div className='items-center justify-center text-center'>
