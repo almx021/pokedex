@@ -1,10 +1,8 @@
 'use client';
 
-import { useEffect, useState } from "react";
-
 import { getAllPokemons } from "@/services/pokemons";
-import { PokemonListResponse } from "@/types/pokemonResponse";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 
 export default function listPokemons() {
@@ -13,7 +11,8 @@ export default function listPokemons() {
     query: useQuery({
         queryKey: ['pokemons', page],
         queryFn: () => getAllPokemons({page}),
-        placeholderData: (previousData, previousQuery) => previousData
+        placeholderData: (previousData) => previousData,
+        retry: false
     }),
     page,
     setPage
