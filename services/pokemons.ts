@@ -1,6 +1,7 @@
 import { BASE_URL } from './api';
 import { Pokemon, PokemonListResponse } from '@/types/pokemon';
 
+
 export async function getAllPokemons({ page = 1 }: { page: number | null }): Promise<PokemonListResponse> {
   const LIMIT = 20
   page = page ? (page - 1) * LIMIT : 0

@@ -1,6 +1,6 @@
-import Link from "next/link"
+import Link from "next/link";
 
-import { PokemonListResponse } from "@/types/pokemon"
+import { PokemonListResponse } from "@/types/pokemon";
 
 
 const PokemonList = ({ pokemons }: { pokemons: PokemonListResponse | null }) => {

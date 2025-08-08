@@ -1,9 +1,10 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
-import { Card, Carousel } from 'antd'
-import { getColor } from '@/utils/colors'
+import { Card, Carousel } from 'antd';
+import { getColor } from '@/utils/colors';
 
-import type { Pokemon } from '@/types/pokemon'
+import type { Pokemon } from '@/types/pokemon';
+
 
 interface Props {
   result: Pokemon | Record<string, never> | null | undefined

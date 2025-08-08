@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import '@ant-design/v5-patch-for-react-19';
 
@@ -6,7 +6,7 @@ import ErrorMessage from '@/components/ErrorMessage';
 import LoadingText from '@/components/LoadingText';
 import PokemonCard from "@/components/PokemonCard";
 import PokemonSearch from "@/components/PokemonSearch";
-import useSearchPokemon from "@/hooks/useSearchPokemon"
+import useSearchPokemon from "@/hooks/useSearchPokemon";
 
 import { Button, Space } from "antd";
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
